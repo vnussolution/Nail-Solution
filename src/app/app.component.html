@@ -1,20 +1,131 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-  <img width="300" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjwhLS0gR2VuZXJhdG9yOiBBZG9iZSBJbGx1c3RyYXRvciAxOS4xLjAsIFNWRyBFeHBvcnQgUGx1Zy1JbiAuIFNWRyBWZXJzaW9uOiA2LjAwIEJ1aWxkIDApICAtLT4NCjxzdmcgdmVyc2lvbj0iMS4xIiBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgeD0iMHB4IiB5PSIwcHgiDQoJIHZpZXdCb3g9IjAgMCAyNTAgMjUwIiBzdHlsZT0iZW5hYmxlLWJhY2tncm91bmQ6bmV3IDAgMCAyNTAgMjUwOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8c3R5bGUgdHlwZT0idGV4dC9jc3MiPg0KCS5zdDB7ZmlsbDojREQwMDMxO30NCgkuc3Qxe2ZpbGw6I0MzMDAyRjt9DQoJLnN0MntmaWxsOiNGRkZGRkY7fQ0KPC9zdHlsZT4NCjxnPg0KCTxwb2x5Z29uIGNsYXNzPSJzdDAiIHBvaW50cz0iMTI1LDMwIDEyNSwzMCAxMjUsMzAgMzEuOSw2My4yIDQ2LjEsMTg2LjMgMTI1LDIzMCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAJIi8+DQoJPHBvbHlnb24gY2xhc3M9InN0MSIgcG9pbnRzPSIxMjUsMzAgMTI1LDUyLjIgMTI1LDUyLjEgMTI1LDE1My40IDEyNSwxNTMuNCAxMjUsMjMwIDEyNSwyMzAgMjAzLjksMTg2LjMgMjE4LjEsNjMuMiAxMjUsMzAgCSIvPg0KCTxwYXRoIGNsYXNzPSJzdDIiIGQ9Ik0xMjUsNTIuMUw2Ni44LDE4Mi42aDBoMjEuN2gwbDExLjctMjkuMmg0OS40bDExLjcsMjkuMmgwaDIxLjdoMEwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMUwxMjUsNTIuMQ0KCQlMMTI1LDUyLjF6IE0xNDIsMTM1LjRIMTA4bDE3LTQwLjlMMTQyLDEzNS40eiIvPg0KPC9nPg0KPC9zdmc+DQo=">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" href="https://blog.angular.io//">Angular blog</a></h2>
-  </li>
-</ul>
+<nav class="navbar navbar-toggleable-md navbar-light fixed-top" style="background-color: #e3f2fd;">
+  <div>
+    <span class="brand">Island</span> <span class="slogan">Salon & Nail Spa</span><i class="face material-icons">face</i>
+  </div>
+</nav>
 
+<div class="container-fluid container-body">
+  <div class="row">
+    <div class="col-7">
+      <!-- info input -->
+      <div class="row">
+        <div class="col-3">
+          <button class="btn btn-primary btn-lg btn-block" (click)="openDialog()">{{selectEmployee}} <fa [name]="'user'" [spin]="false" ></fa> </button>
+        </div>
+        <div class="col-2">
+          <md-input-container>
+            <input mdInput type="" input-trigger="amount" [(ngModel)]="amount" class="form-control form-control-lg" placeholder="Amount">
+
+          </md-input-container>
+        </div>
+        <div class="col-2">
+          <md-input-container>
+            <input mdInput type="" input-trigger="tip" [(ngModel)]="tip" class="form-control form-control-lg" placeholder="Tip in Card">
+
+          </md-input-container>
+
+        </div>
+        <div class="col-2">
+          <md-input-container>
+            <input mdInput type="" input-trigger="discount" [(ngModel)]="discount" class="form-control form-control-lg" placeholder="Discount">
+
+          </md-input-container>
+        </div>
+        <div class="col-3">
+          <!-- <div class="input-group">
+            <input class="form-control form-control-lg" placeholder="mm-dd-yy" name="dp" [(ngModel)]="dpModel" ngbDatepicker #d="ngbDatepicker">
+            <button class="input-group-addon" (click)="d.toggle()" type="button">  <fa [name]="'calendar'" [size]="2"></fa> 
+              </button>
+          </div> -->
+
+          <md-input-container class="example-full-width">
+            <input mdInput [mdDatepicker]="picker" placeholder="Date" [(ngModel)]="date">
+            <button mdSuffix [mdDatepickerToggle]="picker"></button>
+          </md-input-container>
+          <md-datepicker touchUi="true" #picker></md-datepicker>
+        </div>
+      </div>
+      <!-- number pad -->
+      <div class="row numbers-pad">
+        <div class="col-9 numbers-section">
+          <div class="row">
+            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('8')">8</button></div>
+            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('9')">9</button></div>
+            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('7')">7</button></div>
+          </div>
+          <div class="row">
+            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('4')">4</button></div>
+            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('5')">5</button></div>
+            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('6')">6</button></div>
+          </div>
+          <div class="row">
+            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('1')">1</button></div>
+            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('2')">2</button></div>
+            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('3')">3</button></div>
+          </div>
+          <div class="row">
+            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('0')">0</button></div>
+            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('.')">.</button></div>
+            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('clear')">Clear</button></div>
+          </div>
+        </div>
+        <div class="col-3 functions-section">
+          <button class="btn-block btn btn-warning btn-lg" (click)="add()" [disabled]="formValid()"> <fa [name]="'plus'" [size]="3"></fa> </button>
+          <button class="btn-block btn btn-danger" (click)="cancel()"> <fa [name]="'refresh'" [size]="2"></fa> </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-5">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Employee</th>
+            <th>Amount</th>
+            <th>Tip</th>
+            <th>Discount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of records; let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{record.date | date:'shortDate'}}</td>
+            <td>{{record.employeeName}}</td>
+            <td>{{record.amount}}</td>
+            <td>{{record.tip}}</td>
+            <td>{{record.discount || 0}}</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<label id="mylabel"></label>
+<hr>
+
+<footer>
+  <p>© Company 2017</p>
+</footer>
+
+
+<ng-template #content let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Select An Empployee</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <div class="row ">
+      <div class="col-3" *ngFor="let e of employees; let i = index">
+        <button (click)="c(e)" class="form-control btn btn-success btn-lg">{{e.name}}</button>
+      </div>
+    </div>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>

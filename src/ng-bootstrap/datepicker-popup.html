@@ -1,0 +1,19 @@
+<!-- <form class="form-inline">
+    <div class="form-group">
+        <div class="input-group">
+            <input class="form-control" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="dpModel" ngbDatepicker #d="ngbDatepicker">
+            <button class="input-group-addon" (click)="d.toggle()" type="button">
+        <img src="img/calendar-icon.svg" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+      </button>
+        </div>
+    </div>
+</form> -->
+
+<div class="input-group">
+    <input class="form-control form-control-lg" placeholder="yyyy-mm-dd" name="dp" [(ngModel)]="dpModel" ngbDatepicker #d="ngbDatepicker">
+    <button class="input-group-addon" (click)="d.toggle()" type="button">
+       <fa [name]="'calendar'" [size]="2"></fa>
+      </button>
+</div>
+<hr/>
+<pre>Model: {{ dpModel | json }}</pre>

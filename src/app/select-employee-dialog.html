@@ -1,0 +1,12 @@
+<h1 md-dialog-title>Employee List</h1>
+<hr>
+<div md-dialog-actions>
+    <div class="modal-body">
+        <div class="row ">
+
+            <div class="col-3" *ngFor="let e of data; let i = index">
+                <button type="button" class="focus btn-block btn btn-success btn-lg" md-dialog-close (click)="closeDialog(e.name)">{{e.name}}</button>
+            </div>
+        </div>
+    </div>
+</div>
