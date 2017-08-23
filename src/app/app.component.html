@@ -1,131 +1,23 @@
-<nav class="navbar navbar-toggleable-md navbar-light fixed-top" style="background-color: #e3f2fd;">
-  <div>
-    <span class="brand">Island</span> <span class="slogan">Salon & Nail Spa</span><i class="face material-icons">face</i>
-  </div>
+<nav class="navbar navbar-expand-lg navbar-toggleable-md navbar-light fixed-top" style="background-color: #e3f2fd;">
+  <ul>
+    <li><a [routerLink]="['welcome']" class="navbar-brand">
+        <span class="brand">Island</span> 
+        <span class="slogan">Salon & Nail Spa</span>
+      </a></li>
+    <li>
+
+    </li>
+    <li>
+      <a [routerLink]="['employee']"> <i  class="face material-icons">group</i> </a>
+      <a [routerLink]="['manager']"> <i class="face material-icons">person</i></a>
+    </li>
+  </ul>
 </nav>
 
-<div class="container-fluid container-body">
-  <div class="row">
-    <div class="col-7">
-      <!-- info input -->
-      <div class="row">
-        <div class="col-3">
-          <button class="btn btn-primary btn-lg btn-block" (click)="openDialog()">{{selectEmployee}} <fa [name]="'user'" [spin]="false" ></fa> </button>
-        </div>
-        <div class="col-2">
-          <md-input-container>
-            <input mdInput type="" input-trigger="amount" [(ngModel)]="amount" class="form-control form-control-lg" placeholder="Amount">
+<router-outlet></router-outlet>
 
-          </md-input-container>
-        </div>
-        <div class="col-2">
-          <md-input-container>
-            <input mdInput type="" input-trigger="tip" [(ngModel)]="tip" class="form-control form-control-lg" placeholder="Tip in Card">
 
-          </md-input-container>
 
-        </div>
-        <div class="col-2">
-          <md-input-container>
-            <input mdInput type="" input-trigger="discount" [(ngModel)]="discount" class="form-control form-control-lg" placeholder="Discount">
-
-          </md-input-container>
-        </div>
-        <div class="col-3">
-          <!-- <div class="input-group">
-            <input class="form-control form-control-lg" placeholder="mm-dd-yy" name="dp" [(ngModel)]="dpModel" ngbDatepicker #d="ngbDatepicker">
-            <button class="input-group-addon" (click)="d.toggle()" type="button">  <fa [name]="'calendar'" [size]="2"></fa> 
-              </button>
-          </div> -->
-
-          <md-input-container class="example-full-width">
-            <input mdInput [mdDatepicker]="picker" placeholder="Date" [(ngModel)]="date">
-            <button mdSuffix [mdDatepickerToggle]="picker"></button>
-          </md-input-container>
-          <md-datepicker touchUi="true" #picker></md-datepicker>
-        </div>
-      </div>
-      <!-- number pad -->
-      <div class="row numbers-pad">
-        <div class="col-9 numbers-section">
-          <div class="row">
-            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('8')">8</button></div>
-            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('9')">9</button></div>
-            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('7')">7</button></div>
-          </div>
-          <div class="row">
-            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('4')">4</button></div>
-            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('5')">5</button></div>
-            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('6')">6</button></div>
-          </div>
-          <div class="row">
-            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('1')">1</button></div>
-            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('2')">2</button></div>
-            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('3')">3</button></div>
-          </div>
-          <div class="row">
-            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('0')">0</button></div>
-            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('.')">.</button></div>
-            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('clear')">Clear</button></div>
-          </div>
-        </div>
-        <div class="col-3 functions-section">
-          <button class="btn-block btn btn-warning btn-lg" (click)="add()" [disabled]="formValid()"> <fa [name]="'plus'" [size]="3"></fa> </button>
-          <button class="btn-block btn btn-danger" (click)="cancel()"> <fa [name]="'refresh'" [size]="2"></fa> </button>
-        </div>
-      </div>
-    </div>
-    <div class="col-5">
-      <table class="table table-striped">
-        <thead>
-          <tr>
-            <th>#</th>
-            <th>Date</th>
-            <th>Employee</th>
-            <th>Amount</th>
-            <th>Tip</th>
-            <th>Discount</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr *ngFor="let record of records; let i = index">
-            <th scope="row">{{i + 1}}</th>
-            <td>{{record.date | date:'shortDate'}}</td>
-            <td>{{record.employeeName}}</td>
-            <td>{{record.amount}}</td>
-            <td>{{record.tip}}</td>
-            <td>{{record.discount || 0}}</td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-  </div>
-</div>
-
-<label id="mylabel"></label>
-<hr>
-
-<footer>
-  <p>© Company 2017</p>
+<footer class="fixed-bottom">
+  <p>© New Nail Solution 2017</p>
 </footer>
-
-
-<ng-template #content let-c="close" let-d="dismiss">
-  <div class="modal-header">
-    <h4 class="modal-title">Select An Empployee</h4>
-    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div class="modal-body">
-    <div class="row ">
-      <div class="col-3" *ngFor="let e of employees; let i = index">
-        <button (click)="c(e)" class="form-control btn btn-success btn-lg">{{e.name}}</button>
-      </div>
-    </div>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-secondary" (click)="c('Close click')">Close</button>
-  </div>
-</ng-template>

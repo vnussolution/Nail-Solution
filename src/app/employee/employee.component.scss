@@ -1,0 +1,19 @@
+.numbers-pad {
+    button {
+        margin: 10px 0 10px 0;
+    }
+}
+
+.mat-input-element {
+    font-size: 1.5em;
+}
+
+.employee-section {
+    padding-top: 50px;
+    .employee-btn {
+        padding: 0 25px;
+        button.focus {
+            margin: 20px 0;
+        }
+    }
+}

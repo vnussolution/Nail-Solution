@@ -1,0 +1,88 @@
+<h1 md-dialog-title>{{selectedEmployee.firstName}}</h1>
+<hr>
+<div md-dialog-actions>
+    <div class="modal-body">
+        <div class="row ">
+            <div class="col-12">
+                <div class="row">
+                    <div class="col-3">
+                        <md-input-container>
+                            <input mdInput type="" input-trigger="amount" [(ngModel)]="amount" class="form-control form-control-lg" placeholder="Amount">
+                        </md-input-container>
+                    </div>
+                    <div class="col-3">
+                        <md-input-container>
+                            <input mdInput type="" input-trigger="tip" [(ngModel)]="tip" class="form-control form-control-lg" placeholder="Tip in Card">
+                        </md-input-container>
+                    </div>
+                    <div class="col-3">
+                        <md-input-container>
+                            <input mdInput type="" input-trigger="discount" [(ngModel)]="discount" class="form-control form-control-lg" placeholder="Discount">
+                        </md-input-container>
+                    </div>
+                    <div class="col-3">
+                        <md-input-container class="example-full-width">
+                            <input mdInput [mdDatepicker]="picker" placeholder="Date" [(ngModel)]="date">
+                            <button mdSuffix [mdDatepickerToggle]="picker"></button>
+                        </md-input-container>
+                        <md-datepicker touchUi="true" #picker></md-datepicker>
+                    </div>
+                </div>
+
+                <div class="row numbers-pad">
+                    <div class="col-9 numbers-section">
+                        <div class="row">
+                            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('8')">8</button></div>
+                            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('9')">9</button></div>
+                            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('7')">7</button></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('4')">4</button></div>
+                            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('5')">5</button></div>
+                            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('6')">6</button></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('1')">1</button></div>
+                            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('2')">2</button></div>
+                            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('3')">3</button></div>
+                        </div>
+                        <div class="row">
+                            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('0')">0</button></div>
+                            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('.')">.</button></div>
+                            <div class="col-4"><button class="btn-block btn btn-info" (click)="click('clear')">Clear</button></div>
+                        </div>
+                    </div>
+                    <div class="col-3 functions-section">
+                        <button class="btn-block btn btn-warning btn-lg" (click)="add()" [disabled]="formValid()"> <fa [name]="'plus'" [size]="3"></fa> </button>
+                        <button class="btn-block btn btn-danger" (click)="cancel()"> <fa [name]="'refresh'" [size]="2"></fa> </button>
+                    </div>
+                </div>
+            </div>
+            <!-- <div class="col-5">
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Date</th>
+                            <th>Employee</th>
+                            <th>Amount</th>
+                            <th>Tip</th>
+                            <th>Discount</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let record of records; let i = index">
+                            <th scope="row">{{i + 1}}</th>
+                            <td>{{record.date | date:'shortDate'}}</td>
+                            <td>{{record.employeeName}}</td>
+                            <td>{{record.amount}}</td>
+                            <td>{{record.tip}}</td>
+                            <td>{{record.discount || 0}}</td>
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div> -->
+        </div>
+    </div>
+</div>

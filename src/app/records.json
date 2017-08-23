@@ -1,0 +1,44 @@
+{
+    "records": [
+        {
+            "id": 1,
+            "date": "1/2/2031",
+            "employeeid": 1,
+            "employeeName": "Annie",
+            "amount": 34,
+            "tip": 4
+        },
+        {
+            "id": 2,
+            "date": "1/2/2031",
+            "employeeid": 1,
+            "employeeName": "Tommy",
+            "amount": 34,
+            "tip": 14
+        },
+        {
+            "id": 3,
+            "date": "1/3/2031",
+            "employeeid": 1,
+            "employeeName": "Tony",
+            "amount": 64,
+            "tip": 23
+        },
+        {
+            "id": 4,
+            "date": "1/4/2031",
+            "employeeid": 1,
+            "employeeName": "Grace",
+            "amount": 74,
+            "tip": 14
+        },
+        {
+            "id": 1,
+            "date": "1/5/2031",
+            "employeeid": 1,
+            "employeeName": "Annie",
+            "amount": 84,
+            "tip": 14
+        }
+    ]
+}

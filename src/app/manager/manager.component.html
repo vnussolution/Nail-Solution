@@ -1,0 +1,68 @@
+<section class="manager-section container container-body">
+
+  <div class="row justify-content-center pin-code-container" *ngIf='!canView'>
+    <div class="col-8 ">
+      <div class="row">
+        <div class="col-12">
+          <md-input-container class="full-width-input">
+            <input mdInput placeholder="Enter 123 to login as manager" input-trigger="pin" [(ngModel)]="pin">
+          </md-input-container>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-4"><button class="btn-block btn btn-info" (click)="click('8')">8</button></div>
+        <div class="col-4"><button class="btn-block btn btn-info" (click)="click('9')">9</button></div>
+        <div class="col-4"><button class="btn-block btn btn-info" (click)="click('7')">7</button></div>
+      </div>
+      <div class="row">
+        <div class="col-4"><button class="btn-block btn btn-info" (click)="click('4')">4</button></div>
+        <div class="col-4"><button class="btn-block btn btn-info" (click)="click('5')">5</button></div>
+        <div class="col-4"><button class="btn-block btn btn-info" (click)="click('6')">6</button></div>
+      </div>
+      <div class="row">
+        <div class="col-4"><button class="btn-block btn btn-info" (click)="click('1')">1</button></div>
+        <div class="col-4"><button class="btn-block btn btn-info" (click)="click('2')">2</button></div>
+        <div class="col-4"><button class="btn-block btn btn-info" (click)="click('3')">3</button></div>
+      </div>
+      <div class="row">
+        <div class="col-4"><button class="btn-block btn btn-info" (click)="click('0')">0</button></div>
+        <div class="col-4"><button class="btn-block btn btn-info" (click)="click('*')">*</button></div>
+        <div class="col-4"><button class="btn-block btn btn-info" (click)="checkPin()">Enter</button></div>
+      </div>
+    </div>
+  </div>
+
+  <md-tab-group *ngIf='canView'>
+    <md-tab label="Today tickets">
+      <h1>Tickets for today</h1>
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Date</th>
+            <th>Employee</th>
+            <th>Amount</th>
+            <th>Tip</th>
+            <th>Discount</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let record of records; let i = index">
+            <th scope="row">{{i + 1}}</th>
+            <td>{{record.date | date:'shortDate'}}</td>
+            <td>{{record.firstName}}</td>
+            <td>{{record.amount}}</td>
+            <td>{{record.tip}}</td>
+            <td>{{record.discount || 0}}</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </md-tab>
+    <md-tab label="Reports">
+      <h1>Some more tab content</h1>
+      <p>...</p>
+    </md-tab>
+  </md-tab-group>
+
+</section>

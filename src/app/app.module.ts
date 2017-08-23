@@ -1,7 +1,10 @@
 import 'hammerjs';
+import './rxjs-extensions';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { RouterModule } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientModule } from '@angular/common/http'
 
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms'
@@ -9,10 +12,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms'
 import { Angular2FontawesomeModule } from 'angular2-fontawesome/angular2-fontawesome'
 
 
-import { AppComponent, SelectEmployeeDialog } from './app.component';
+import { AppComponent } from './app.component';
 import { NgbdCarouselBasic } from '../ng-bootstrap/carousel-basic';
 import { NgbdDatepickerPopup } from '../ng-bootstrap/datepicker-popup';
 import { InputTriggerDirective } from './input-trigger.directive'
+import { AppServices } from './app.services';
+import { EmployeeComponent, SelectEmployeeDialog } from './employee/employee.component'
+import { WelcomeComponent } from './home/welcome.component';
+
 
 // Angular Material
 import {
@@ -50,6 +57,9 @@ import {
 } from '@angular/material';
 
 import { CdkTableModule } from '@angular/cdk';
+import { SpinnerComponent } from './shared/spinner/spinner.component';
+import { ManagerComponent } from './manager/manager.component';
+import { NavComponent } from './nav/nav.component';
 
 @NgModule({
   exports: [
@@ -97,21 +107,35 @@ export class MaterialModule { }
     NgbdCarouselBasic,
     NgbdDatepickerPopup,
     InputTriggerDirective,
-    SelectEmployeeDialog
+    SelectEmployeeDialog,
+    EmployeeComponent,
+    WelcomeComponent,
+    SpinnerComponent,
+    ManagerComponent,
+    NavComponent
   ],
-  entryComponents: [SelectEmployeeDialog],
+  entryComponents: [SelectEmployeeDialog, SpinnerComponent],
   imports: [
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     Angular2FontawesomeModule,
-    //MaterialModule,
+    MaterialModule,
     MdNativeDateModule,
     MdDatepickerModule,
     MdInputModule,
     FormsModule, ReactiveFormsModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    RouterModule.forRoot([
+      { path: 'employee', component: EmployeeComponent },
+
+      { path: 'manager', component: ManagerComponent },
+      { path: 'welcome', component: WelcomeComponent },
+      { path: '', redirectTo: 'employee', pathMatch: 'full' },
+      { path: '**', redirectTo: 'employee', pathMatch: 'full' }
+    ]),
   ],
-  providers: [],
+  providers: [AppServices],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

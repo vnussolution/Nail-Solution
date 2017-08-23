@@ -15,3 +15,18 @@ body {
 .modal-body .row button {
     margin: 10px 0 10px 0;
 }
+
+.custom-spinner md-dialog-container {
+    background: transparent;
+}
+
+nav .material-icons {
+    font-size: 40px;
+    padding: 5px 15px;
+    margin: 1px 5px;
+    border: 1px solid black;
+}
+
+.body-section {
+    margin-top: 80px;
+}

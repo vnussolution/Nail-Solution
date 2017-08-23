@@ -1,0 +1,11 @@
+<section class="container container-body employee-section">
+    <div class="row">
+
+        <div class="col-3 employee-btn" *ngFor="let e of employees; let i = index">
+            <button type="button" class="focus btn-block btn btn-success btn-lg" (click)="openDialog(e)">{{e.firstName + ' - ' + i}} </button>
+        </div>
+
+    </div>
+</section>
+
+<label id="mylabel" hidden></label>
